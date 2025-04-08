@@ -1,4 +1,3 @@
-Sure! Here's your revised and paraphrased project README with the updated GitHub repo link (`https://github.com/KruBro/emotion-detector.git`) and improved structure and clarity:
 
 ---
 
