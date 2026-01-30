@@ -1,80 +1,96 @@
+# Emotion Detection Web Application
+
+## Overview
+This project is a Flask-based web application that analyzes emotions in user-provided text using IBM Watson Natural Language Processing (NLP) services.  
+It detects five emotions — **anger, disgust, fear, joy, and sadness** — and identifies the dominant emotion based on confidence scores.
+
+The application demonstrates third-party API integration, backend request handling, and basic test-driven validation.
 
 ---
 
-# 🎯 Final Project: Emotion Detection Web Application
-
-## 🔍 Overview
-
-Welcome to your final project! This task is designed to showcase your ability to build and deploy a web-based application using Flask and IBM Watson NLP services. Your challenge is to create an **Emotion Detection Web App** that can analyze user-submitted text and detect underlying emotions such as **joy**, **anger**, **fear**, and more.
-
-This project combines natural language processing with web development, giving you hands-on experience in AI integration and full-stack deployment.
+## Features
+- **Real-time emotion analysis** of input text via a web interface  
+- **Dominant emotion identification** based on highest confidence score  
+- **Error handling** for empty inputs and invalid requests (HTTP 400)  
+- **Unit testing** to validate emotion classification logic across sample inputs  
 
 ---
 
-## 📁 GitHub Repository
+## Project Structure
+emotion-detector/
+├── server.py
+├── EmotionDetection/
+│ ├── init.py
+│ ├── emotion_detection.py
+│ └── requirements.txt
+├── static/
+│ └── mywebscript.js
+├── templates/
+│ └── index.html
+├── test_emotion_detection.py
+├── LICENSE
+└── README.md
 
-This project has been cloned, modified, and pushed to a new GitHub repository for use in a cloud-based IDE environment. You can access it here:
-
-👉 [https://github.com/KruBro/emotion-detector.git](https://github.com/KruBro/emotion-detector.git)
-
----
-
-## 🧠 What is Emotion Detection?
-
-Emotion detection expands on basic sentiment analysis by identifying more specific emotions like **sadness**, **disgust**, **joy**, **fear**, and **anger**. It's a powerful tool used in various domains including:
-
-- Recommendation systems  
-- Customer service chatbots  
-- Mental health analysis  
-- Social media monitoring  
-
-This project uses **IBM Watson NLP** to bring emotion detection into a web interface.
 
 ---
 
-## ✅ Project Tasks
+## Key Components
+- **server.py**  
+  Flask application entry point. Handles routing and HTTP requests.
 
-Here's a breakdown of the key steps involved in this project:
+- **EmotionDetection/emotion_detection.py**  
+  Core logic for invoking the IBM Watson NLP API and parsing emotion scores.
 
-### 📥 Task 1: Clone the GitHub Repository
-Begin by cloning the modified version of the project repository from:
-```
-https://github.com/KruBro/emotion-detector.git
-```
+- **static/mywebscript.js**  
+  Client-side JavaScript for asynchronous requests and dynamic UI updates.
 
-### 🛠️ Task 2: Build the Emotion Detection App
-Develop a Python-based application using **Watson NLP** to analyze input text and return emotion scores.
+- **templates/index.html**  
+  Web interface built using Bootstrap.
 
-### 🎨 Task 3: Format the Output
-Ensure your output is clearly structured and easy to read. It should show individual emotion scores and identify the dominant emotion.
-
-### 📦 Task 4: Prepare the App for Deployment
-Organize your project files, dependencies (e.g., `requirements.txt`), and configuration so the app can be easily deployed.
-
-### 🧪 Task 5: Implement Unit Tests
-Write unit tests to verify your emotion detection logic is working correctly. Make use of Python’s `unittest` framework.
-
-### 🌐 Task 6: Deploy the App Using Flask
-Deploy the app as a web service using the Flask framework. Users should be able to interact with it through a browser interface.
-
-### ⚠️ Task 7: Add Error Handling
-Add robust error handling, especially for edge cases like empty input. Ensure the app responds with user-friendly messages.
-
-### 🧹 Task 8: Run Static Code Analysis
-Use tools like `pylint` or `flake8` to analyze your code for style and quality. Address any major issues that arise.
+- **test_emotion_detection.py**  
+  Unit tests validating expected emotion outputs for known inputs.
 
 ---
 
-## 📸 Final Notes
+## Installation
 
-As you progress, be sure to capture **screenshots** of:
-- Your code
-- Application interface
-- Test results
-- Error handling in action
+### Prerequisites
+- Python 3.x
+- IBM Watson NLP API credentials
 
-These will be essential for your **peer-graded submission**.
+### Clone the Repository
+```bash
+git clone https://github.com/KruBro/emotion-detector.git
+cd emotion-detector
 
----
+Install Dependencies
+pip install -r EmotionDetection/requirements.txt
+Usage
+Start the Flask Server
+python3 server.py
+The application will be available at:
+http://0.0.0.0:5000
+Analyze Text
 
-Let me know if you'd like help generating a `requirements.txt`, adding a Flask deployment guide, or setting up unit tests!
+Open the application in a web browser.
+
+Enter text (example: I am glad this happened).
+
+Click Run Sentiment Analysis.
+
+View emotion scores and the detected dominant emotion.
+
+Running Unit Tests
+
+To verify that emotion detection behaves as expected:
+python3 test_emotion_detection.py
+The test suite includes cases such as:
+
+Detecting joy for positive statements
+
+Detecting anger for negative or aggressive statements
+
+License
+
+This project is licensed under the Apache License 2.0.
+See the LICENSE file for full details.
